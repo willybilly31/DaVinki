@@ -19,12 +19,22 @@ const int m2Right = 5;
 const int m3Left  = 6;
 const int m3Right = 7;
 
+// Speed
+const int FAST = 85;
+const int SLOW = 95;
+const int STOP = 90;
+
+// Current servo speeds
+int motor1Speed = STOP;
+int motor2Speed = STOP;
+int motor3Speed = STOP;
+
 void setup() {
+
   motor1.attach(motor1Pin);
   motor2.attach(motor2Pin);
   motor3.attach(motor3Pin);
 
-  // Buttons use the Arduino's built-in pull-up resistors
   pinMode(m1Left, INPUT_PULLUP);
   pinMode(m1Right, INPUT_PULLUP);
 
@@ -34,44 +44,60 @@ void setup() {
   pinMode(m3Left, INPUT_PULLUP);
   pinMode(m3Right, INPUT_PULLUP);
 
-  // Start stopped
-  motor1.write(90);
-  motor2.write(90);
-  motor3.write(90);
+  motor1.write(STOP);
+  motor2.write(STOP);
+  motor3.write(STOP);
 }
 
 void loop() {
 
-  //motor1
+  // MOTOR 1
+
   if (digitalRead(m1Left) == LOW) {
-    motor1.write(89);       // Slowest
+    motor1Speed = FAST;
   }
   else if (digitalRead(m1Right) == LOW) {
-    motor1.write(91);       // Slowest
+    motor1Speed = SLOW;
   }
   else {
-    motor1.write(90);       // Stop
+    // Gradually return to stop
+    if (motor1Speed < STOP) motor1Speed++;
+    if (motor1Speed > STOP) motor1Speed--;
   }
 
-//motor2
+  motor1.write(motor1Speed);
+
+
+  // MOTOR 2
+
   if (digitalRead(m2Left) == LOW) {
-    motor2.write(89); //slowest
+    motor2Speed = FAST;
   }
   else if (digitalRead(m2Right) == LOW) {
-    motor2.write(91); //slowest
+    motor2Speed = SLOW;
   }
   else {
-    motor2.write(90);//stop
+    if (motor2Speed < STOP) motor2Speed++;
+    if (motor2Speed > STOP) motor2Speed--;
   }
 
+  motor2.write(motor2Speed);
 
-  //motor3
+
+  // MOTOR 3
+
   if (digitalRead(m3Left) == LOW) {
-    motor3.write(89); //slowest
+    motor3Speed = FAST;
   }
   else if (digitalRead(m3Right) == LOW) {
-    motor3.write(91); // slowest
+    motor3Speed = SLOW;
   }
   else {
-    motor3.write(90); //stop
+    if (motor3Speed < STOP) motor3Speed++;
+    if (motor3Speed > STOP) motor3Speed--;
   }
+
+  motor3.write(motor3Speed);
+
+  delay(30);
+}
