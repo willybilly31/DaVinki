@@ -44,10 +44,10 @@ void loop() {
 
   //motor1
   if (digitalRead(m1Left) == LOW) {
-    motor1.write(87);       // Slow left
+    motor1.write(89);       // Slowest
   }
   else if (digitalRead(m1Right) == LOW) {
-    motor1.write(93);       // Slow right
+    motor1.write(91);       // Slowest
   }
   else {
     motor1.write(90);       // Stop
@@ -55,24 +55,23 @@ void loop() {
 
 //motor2
   if (digitalRead(m2Left) == LOW) {
-    motor2.write(87);
+    motor2.write(89); //slowest
   }
   else if (digitalRead(m2Right) == LOW) {
-    motor2.write(93);
+    motor2.write(91); //slowest
   }
   else {
-    motor2.write(90);
+    motor2.write(90);//stop
   }
 
 
   //motor3
   if (digitalRead(m3Left) == LOW) {
-    motor3.write(87);
+    motor3.write(89); //slowest
   }
   else if (digitalRead(m3Right) == LOW) {
-    motor3.write(93);
+    motor3.write(91); // slowest
   }
   else {
-    motor3.write(90);
+    motor3.write(90); //stop
   }
-}
