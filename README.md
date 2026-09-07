@@ -1,7 +1,6 @@
 # DaVinki
 
-DaVinki is a robotic arm, controlled by buttons, and includes a mount for a paintbrush, ive given the cad files so you can edit the size of the mount if it doesnt fit.
-In my testing i used an Arduino Nano
+DaVinki is a Robotic arm with the purpose of painting. Its controlled by six tactile push buttons and 3 servo motors. I made this because i wanted to make a simple Robot arm controlled by servos but i kinda ordered only 3.. So i decided instead of buying a fourth one for the grabber mechanism i would just design a paintbrush mount (which i did) and i can paint to my hearts content. I guess this could be used as an accessibility thing at the moment because its just controlled by buttons. In the future i hope to add directional servos and a Web interface with the purpose of Drawing --> DaVinki --> Canvas.
 
 ---
 
@@ -16,7 +15,7 @@ In my testing i used an Arduino Nano
 ---
 
 ## Wiring for Arduino Nano
-
+![DaVinki Wiring Diagram](DaVinki%20Wiring%20Diagram.jpg)
 ### 6 Buttons
 
 | Pin |
@@ -35,3 +34,9 @@ In my testing i used an Arduino Nano
 |  D9 |
 | D10 |
 | D11 |
+
+---
+
+CAD files are listed above. 
+
+
